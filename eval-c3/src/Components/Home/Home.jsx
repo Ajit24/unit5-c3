@@ -18,6 +18,7 @@ export const Home = () => {
 
   const Main = styled.div`
     /* Apply some responsive styling to children */
+    
   `;
 
   return (
