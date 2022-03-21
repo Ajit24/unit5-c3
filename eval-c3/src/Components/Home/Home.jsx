@@ -39,10 +39,11 @@ export const Home = () => {
         {
           list.map((e) => (
             <div>
-
+            
               <p> Title:{e.title}</p>
-              <p>author:{e.author}.</p>
+              <p>author:{e.author}</p>
               <p>description:{e.description}</p>
+            <img src={e.image_url} alt = ""/>
             </div>
           ))
         }
