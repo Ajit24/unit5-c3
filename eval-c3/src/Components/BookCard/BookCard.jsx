@@ -18,4 +18,11 @@ export const BookCard = ({ id, imageUrl, title, price }) => {
   // rough example:
   // <YourStyledLink to={}>
   //    title, image price etc here
+  <Link to={`/books/${id}`}>
+    <div className="bookCard" key={id}>
+      <img src={imageUrl} alt="" />
+      <h2 classname="title">{title}</h2>
+      <p class="price">{price}</p>
+    </div>
+  </Link>;
 };

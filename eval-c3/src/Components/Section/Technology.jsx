@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { BookCard } from "../BookCard/BookCard";
 
-export const Home = () => {
+export const Technology = () => {
   // get all books when user lands on the page
   // populate them as mentioned below
 
@@ -14,8 +13,15 @@ export const Home = () => {
 
   const getbook = () => {
     axios.get("http://localhost:8080/books").then((res) => {
-      setbookdata(res.data);
-      console.log(res.data);
+      var filt = res.data;
+
+      var filt2 = filt.filter((e) => {
+        return e.section == "Technology";
+      });
+
+      setbookdata(filt2);
+
+      // console.log(res.data);
     });
   };
 
@@ -29,7 +35,7 @@ export const Home = () => {
       filt.sort((a, b) => {
         return a.title - b.title;
       });
-      // console.log(filt);
+      console.log(filt);
 
       setbookdata(filt);
     });
@@ -40,7 +46,7 @@ export const Home = () => {
       filt.sort((a, b) => {
         return b.title - a.title;
       });
-      // console.log(filt);
+      console.log(filt);
 
       setbookdata(filt);
     });
@@ -70,7 +76,7 @@ export const Home = () => {
 
   return (
     <div className="homeContainer">
-      <h2 style={{ textAlign: "center" }}>Home</h2>
+      <h2 style={{ textAlign: "center" }}>Technology</h2>
       <div className="sortButtons">
         {/*
         Create 4 sorting buttons here to sort by following criteria:
@@ -138,14 +144,6 @@ export const Home = () => {
                 <p className="price">{el.price}</p>
               </div>
             </Link>
-            // <BookCard
-            //   key={el.id}
-            //   id={el.id}
-            //   imageUrl={el.imageUrl}
-            //   title={el.title}
-            //   price={el.price}
-            //   to={`/books/${el.id}`}
-            // />
           );
         })}
       </div>

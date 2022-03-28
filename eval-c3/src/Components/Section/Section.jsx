@@ -12,14 +12,7 @@ export const Section = () => {
 
   const Main = styled.div`
     /* Same as Homepage */
-    width:100%;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-gap: 50px;
   `;
-  useEffect(()=>{
-    axios.get(`http://localhost:8080/products/`)
-  },[])
 
   return (
     <>
